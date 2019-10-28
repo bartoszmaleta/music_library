@@ -37,7 +37,7 @@ def print_albums_by_genre(list_of_lists):
 
 def print_albums_by_given_time_range(list_of_lists):
     minimal_time_in_minutes = (input('Minimum time of album: (in minutes) '))
-    maximum_time_in_minutes = (input('Maximum time of album: (in minutes)'))
+    maximum_time_in_minutes = (input('Maximum time of album: (in minutes) '))
     print(minimal_time_in_minutes)
     print(maximum_time_in_minutes)
     minimal_time_in_seconds = int(minimal_time_in_minutes) * 60
