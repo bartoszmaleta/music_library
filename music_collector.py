@@ -22,4 +22,7 @@ def print_records(list_of_lists):
         print(elem)
 
 
+# testowanie 1234
+# testowanie 1234
+
 main()
