@@ -23,6 +23,6 @@ def print_records(list_of_lists):
 
 
 # testowanie 1234
-# testowanie 12366786867
+# testowanie 12366786867234234sasadasd
 
 main()
