@@ -1,4 +1,5 @@
 import csv
+# from display import *
 
 
 def main():
@@ -7,6 +8,10 @@ def main():
     list_of_lists = data
     print()
     print_records(list_of_lists)
+    print()
+    print_albums_by_genre(list_of_lists)
+    print()
+    print_albums_by_given_time_range(list_of_lists)
 
 
 def import_files(filename='text_albums_data.txt'):
@@ -22,7 +27,39 @@ def print_records(list_of_lists):
         print(elem)
 
 
-# testowanie 1234
-# testowanie 12366786867234234sasadasd
+def print_albums_by_genre(list_of_lists):
+    genre = input('By what genre you want see albums? ')
+    genre = genre.lower()
+    for elem in list_of_lists:
+        if genre == elem[-2]:
+            print(elem)
+
+
+def print_albums_by_given_time_range(list_of_lists):
+    minimal_time_in_minutes = (input('Minimum time of album: (in minutes) '))
+    maximum_time_in_minutes = (input('Maximum time of album: (in minutes)'))
+    print(minimal_time_in_minutes)
+    print(maximum_time_in_minutes)
+    minimal_time_in_seconds = int(minimal_time_in_minutes) * 60
+    print(minimal_time_in_seconds)
+    maximum_time_in_seconds = int(maximum_time_in_minutes) * 60
+    print(maximum_time_in_seconds)
+
+    for elem in list_of_lists:
+        # print(list_of_lists[-1])
+        # print(list_of_lists[-1][-1])
+        # print()
+        index = -1
+        length_of_album = list_of_lists[index][-1]
+        length_of_album_str = length_of_album  # "40:52"
+        # print(length_of_album_str)
+        (m, s) = length_of_album.split(':')  
+        length_of_album_in_seconds = int(m) * 60 + int(s)
+        print(length_of_album_in_seconds)
+        # print(length_of_album)
+        if length_of_album_in_seconds in range(minimal_time_in_seconds, maximum_time_in_seconds):
+            print(elem)
+        index -= 1
+
 
 main()
