@@ -44,22 +44,20 @@ def print_albums_by_given_time_range(list_of_lists):
     print(minimal_time_in_seconds)
     maximum_time_in_seconds = int(maximum_time_in_minutes) * 60
     print(maximum_time_in_seconds)
+    #print(length_of_album_in_seconds)
 
     for elem in list_of_lists:
-        # print(list_of_lists[-1])
-        # print(list_of_lists[-1][-1])
-        # print()
-        index = -1
-        length_of_album = list_of_lists[index][-1]
-        length_of_album_str = length_of_album  # "40:52"
-        # print(length_of_album_str)
+        length_of_album = elem[-1]
+        length_of_album_str = length_of_album 
         (m, s) = length_of_album.split(':')  
         length_of_album_in_seconds = int(m) * 60 + int(s)
-        print(length_of_album_in_seconds)
-        # print(length_of_album)
         if length_of_album_in_seconds in range(minimal_time_in_seconds, maximum_time_in_seconds):
             print(elem)
-        index -= 1
+        
+        
+        # print(length_of_album)
+        
+            
 
 
 main()
