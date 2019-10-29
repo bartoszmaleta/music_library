@@ -12,6 +12,10 @@ def main():
     print_albums_by_genre(list_of_lists)
     print()
     print_albums_by_given_time_range(list_of_lists)
+    print()
+    print_albums_by_artist(list_of_lists)
+    print()
+    print_albums_by_album_name(list_of_lists)
 
 
 def import_files(filename='text_albums_data.txt'):
@@ -49,6 +53,22 @@ def print_albums_by_given_time_range(list_of_lists):
         (m, s) = length_of_album.split(':')  
         length_of_album_in_seconds = int(m) * 60 + int(s)
         if length_of_album_in_seconds in range(minimal_time_in_seconds, maximum_time_in_seconds):
+            print(elem)
+
+
+def print_albums_by_artist(list_of_lists):
+    artist = input('By what artist you want see albums? ')
+    # artist = artist.lower()
+    for elem in list_of_lists:
+        if artist == elem[0]:
+            print(elem)
+
+
+def print_albums_by_album_name(list_of_lists):
+    album_name = input('By what name you want see albums? ')
+    # album_name = album_name.lower()
+    for elem in list_of_lists:
+        if album_name == elem[1]:
             print(elem)
 
 
