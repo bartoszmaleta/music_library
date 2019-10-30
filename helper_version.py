@@ -10,7 +10,6 @@ def main():
 def menu():
     is_running = True
     while is_running:
-        import_files()
         display_menu()
         user_choice = input("Your choise is: ")
         if (user_choice == "1"):
@@ -27,7 +26,7 @@ def menu():
             print_albums_by_given_album_name()
         elif (user_choice == "7"):  # TODO raport!!!!
             # printning_raport()
-            return_raport()
+            print_raport()
         elif (user_choice == "8"):
             add_new_album()
         elif (user_choice == "10"):
@@ -276,7 +275,7 @@ def printing_shortest_or_longest_album():
 # ----------------------------
 
 
-def return_raport():
+def print_raport():
     print_youngest_album = return_list_of_youngest_album()
     print_oldest_album = return_list_of_oldest_album()
     print_list_of_shortest_albums = return_list_of_shortest_albums()
@@ -286,6 +285,7 @@ def return_raport():
     print('shortest ---> ', print_list_of_shortest_albums)
     print('longest ---> ', print_list_of_longest_albums)
 
+
 def add_new_album():
     new_album = []
     input_class_list = ['Artist', 'Title', 'year', 'genre', 'lenght']
@@ -293,14 +293,10 @@ def add_new_album():
         element = input(f"Input : {elem} : ")
         new_album.append(element)
     print(new_album)
-    string = ",".join(new_album)
-    print(string)
     with open('text_albums_data.txt', 'a+') as fo:
-        fo.writelines("%s" % "\n" + string)
+        fo.writelines("%s\n" % elem for elem in new_album)
         
     return new_album
-
-
 
 
 main()
