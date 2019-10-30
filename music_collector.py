@@ -251,8 +251,10 @@ def add_new_album():
         element = input(f"Input : {elem} : ")
         new_album.append(element)
     print(new_album)
+    string = ",".join(new_album)
+    print(string)
     with open('text_albums_data.txt', 'a+') as fo:
-        fo.writelines("%s\n" % elem for elem in new_album)
+        fo.writelines("%s" % string)
         
     return new_album
 
