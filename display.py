@@ -1,5 +1,6 @@
 user_choice = ''
 
+
 def print_records(list_of_lists):
     for elem in list_of_lists:
         print(elem)
@@ -16,6 +17,7 @@ def display_menu():
     print("7. Print report")
     print("8. Add new album")
     print("9. Edit album")
+    print("10. Find oldest or youngest album (o/y)")
     print("Q. Quit")
 
 
@@ -29,10 +31,6 @@ def display_menu():
 #         elif (user_choice == "Q"):
 #             is_running = False
     
-
-
-
-
 
 # is_running = True
 # user_choice = None
