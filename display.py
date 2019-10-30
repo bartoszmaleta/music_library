@@ -1,7 +1,9 @@
-from music_collector import *
-
-is_running = True
 user_choice = ''
+
+def print_records(list_of_lists):
+    for elem in list_of_lists:
+        print(elem)
+    return print_records
 
 
 def display_menu():
@@ -17,14 +19,20 @@ def display_menu():
     print("Q. Quit")
 
 
-while is_running is True:
-    user_choice = input("Your choise is: ")
-    display_menu()
-    if (user_choice == "1"):
-        print_records(list_of_lists)
-    elif (user_choice == "Q"):
-        is_running = False
+# def menu():
+#     is_running = True
+#     while is_running:
+#         display_menu()
+#         user_choice = input("Your choise is: ")
+#         if (user_choice == "1"):
+#             print_records(list_of_lists)
+#         elif (user_choice == "Q"):
+#             is_running = False
     
+
+
+
+
 
 # is_running = True
 # user_choice = None

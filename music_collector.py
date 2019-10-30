@@ -3,23 +3,19 @@ from display import *
 
 
 def main():
-    display_menu()
-    data = import_files()
-    print(data)
-    list_of_lists = data
-    print()
-    print_records(list_of_lists)
-    print()
-    print_albums_by_genre(list_of_lists)
-    print()
-    print_albums_by_given_time_range(list_of_lists)
-    print()
-    print_albums_by_artist(list_of_lists)
-    print()
-    print_albums_by_album_name(list_of_lists)
-    locate_youngest_or_oldest_album()
-    converting_to_seconds(list_of_lists)
+    menu()
+   
 
+def menu():
+    is_running = True
+    while is_running:
+        display_menu()
+        user_choice = input("Your choise is: ")
+        if (user_choice == "1"):
+            print_records(list_of_lists)
+        elif
+        elif (user_choice == "Q"):
+            is_running = False
 
 def import_files(filename="text_albums_data.txt"): 
     results = []
@@ -36,17 +32,20 @@ print(data)
 list_of_lists = data
 
 
-def print_records(list_of_lists):
-    for elem in list_of_lists:
-        print(elem)
 
 
 def print_albums_by_genre(list_of_lists):
     genre = input('By what genre you want see albums? ')
     genre = genre.lower()
+    
+    selected_albums = []
+    
     for elem in list_of_lists:
         if genre == elem[-2]:
-            print(elem)
+            # print(elem)
+            selected_albums.append(elem)
+    
+    print_records(selected_albums)
 
 
 def print_albums_by_given_time_range(list_of_lists):
