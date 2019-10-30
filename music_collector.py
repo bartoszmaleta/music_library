@@ -13,11 +13,21 @@ def menu():
         user_choice = input("Your choise is: ")
         if (user_choice == "1"):
             print_records(list_of_lists)
-        elif
+        elif (user_choice == "2"):
+            print_albums_by_genre(list_of_lists)
+        elif (user_choice == "3"):
+            print_albums_by_given_time_range(list_of_lists)
+        elif (user_choice == "4"):
+            converting_to_seconds(list_of_lists)
+        elif (user_choice == "5"):
+            print_albums_by_artist(list_of_lists)
+        elif (user_choice == "6"):
+            print_albums_by_album_name(list_of_lists)
         elif (user_choice == "Q"):
             is_running = False
 
-def import_files(filename="text_albums_data.txt"): 
+
+def import_files(filename="/home/acer/Documents/music_library/music_library/text_albums_data.txt"): 
     results = []
     with open(filename, newline='') as inputfile:
         for row in csv.reader(inputfile):
@@ -30,8 +40,6 @@ data = import_files()
 import_files()
 print(data)
 list_of_lists = data
-
-
 
 
 def print_albums_by_genre(list_of_lists):
@@ -126,7 +134,7 @@ def locate_youngest_or_oldest_album():
             print(list_of_lists[elem]) 
 
 
-def converting_to_seconds(length_of_album):
+def converting_to_seconds(list_of_lists):
     list_of_length_of_albums = []
     for elem in list_of_lists:
         length_of_album = elem[-1]
