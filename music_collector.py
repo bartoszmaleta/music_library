@@ -16,6 +16,7 @@ def main():
     print_albums_by_artist(list_of_lists)
     print()
     print_albums_by_album_name(list_of_lists)
+    print_albums_by_year(list_of_lists)
 
 
 def import_files(filename='text_albums_data.txt'):
@@ -70,6 +71,16 @@ def print_albums_by_album_name(list_of_lists):
     for elem in list_of_lists:
         if album_name == elem[1]:
             print(elem)
+
+
+def print_albums_by_year(list_of_lists):
+    years =[]
+    max_or_min = input('Oldest or Newest o/n ? ')
+    # album_name = album_name.lower()
+    for elem in list_of_lists:
+        years.append(int(elem[2]))
+        
+    print(years)
 
 
 main()
