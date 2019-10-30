@@ -1,4 +1,5 @@
 import csv
+import pickle
 from display import *
 
 
@@ -25,13 +26,15 @@ def menu():
             print_albums_by_given_album_name()
         # elif (user_choice == "7"):  # TODO raport!!!!
         #     printning_raport()
+        elif (user_choice == "8"):
+            add_new_album()
         elif (user_choice == "10"):
             print_youngest_or_oldest_album()
         elif (user_choice == "Q"):
             is_running = False
 
 
-def import_files(filename="/home/acer/Documents/music_library/music_library/text_albums_data.txt"): 
+def import_files(filename="text_albums_data.txt"): 
     results = []
     with open(filename, newline='') as inputfile:
         for row in csv.reader(inputfile):
@@ -240,6 +243,20 @@ def printing_shortest_or_longest_album():
 
 def printing_raport():
     pass
+
+def add_new_album():
+    new_album = []
+    input_class_list = ['Artist', 'Title', 'year', 'genre', 'lenght']
+    for elem in input_class_list:
+        element = input(f"Input : {elem} : ")
+        new_album.append(element)
+    print(new_album)
+    with open('text_albums_data.txt', 'a+') as fo:
+        fo.writelines("%s\n" % elem for elem in new_album)
+        
+    return new_album
+
+
 
 
 main()
