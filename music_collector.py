@@ -80,6 +80,11 @@ def print_albums_by_year(list_of_lists):
     for elem in list_of_lists:
         years.append(int(elem[2]))
         
+    if max_or_min == 'n':
+        print(max(years)) 
+    else: 
+        print(min(years))
+
     print(years)
 
 
