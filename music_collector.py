@@ -20,7 +20,7 @@ def main():
     converting_to_seconds(list_of_lists)
 
 
-def import_files(filename="/home/acer/Documents/music_library/music_library/text_albums_data.txt"):  # how to?
+def import_files(filename="text_albums_data.txt"): 
     results = []
     with open(filename, newline='') as inputfile:
         for row in csv.reader(inputfile):
@@ -126,10 +126,6 @@ def locate_youngest_or_oldest_album():
             print(list_of_lists[elem]) 
 
 
-def print_shortest_or_longest_album():
-    pass
-
-
 def converting_to_seconds(length_of_album):
     list_of_length_of_albums = []
     for elem in list_of_lists:
@@ -155,6 +151,11 @@ def converting_to_seconds(length_of_album):
     # TODO: maximum lenght:     # CONTINUE!!
     maximum_length = max(list_of_length_of_albums)
     print(maximum_length)
+
+    index_of_maximum_length_in_list_of_lists = list_of_length_of_albums.index(maximum_length)
+    print(index_of_maximum_length_in_list_of_lists)
+    album_with_longest_length = list_of_lists[index_of_maximum_length_in_list_of_lists]
+    print(album_with_longest_length)
 
 
 main()
