@@ -12,6 +12,11 @@ def main():
     print_albums_by_genre(list_of_lists)
     print()
     print_albums_by_given_time_range(list_of_lists)
+    print()
+    print_albums_by_artist(list_of_lists)
+    print()
+    print_albums_by_album_name(list_of_lists)
+    print_albums_by_year(list_of_lists)
 
 
 def import_files(filename='text_albums_data.txt'):
@@ -53,4 +58,35 @@ def print_albums_by_given_time_range(list_of_lists):
 
 
 # testing git
+def print_albums_by_artist(list_of_lists):
+    artist = input('By what artist you want see albums? ')
+    # artist = artist.lower()
+    for elem in list_of_lists:
+        if artist == elem[0]:
+            print(elem)
+
+
+def print_albums_by_album_name(list_of_lists):
+    album_name = input('By what name you want see albums? ')
+    # album_name = album_name.lower()
+    for elem in list_of_lists:
+        if album_name == elem[1]:
+            print(elem)
+
+
+def print_albums_by_year(list_of_lists):
+    years =[]
+    max_or_min = input('Oldest or Newest o/n ? ')
+    # album_name = album_name.lower()
+    for elem in list_of_lists:
+        years.append(int(elem[2]))
+        
+    if max_or_min == 'n':
+        print(max(years)) 
+    else: 
+        print(min(years))
+
+    print(years)
+
+
 main()
