@@ -1,9 +1,5 @@
 import csv
 # from display import *
-# data = import_files()
-# import_files()
-# print(data)
-# list_of_lists = data
 
 
 def main():
@@ -20,11 +16,11 @@ def main():
     print_albums_by_artist(list_of_lists)
     print()
     print_albums_by_album_name(list_of_lists)
-    # print_albums_by_year(list_of_lists)  # return years
-    locate_min()
+    locate_youngest_or_oldest_album()
+    converting_to_seconds(list_of_lists)
 
 
-def import_files(filename="text_albums_data.txt"):  # how to?
+def import_files(filename="/home/acer/Documents/music_library/music_library/text_albums_data.txt"):  # how to?
     results = []
     with open(filename, newline='') as inputfile:
         for row in csv.reader(inputfile):
@@ -95,7 +91,7 @@ def print_albums_by_album_name(list_of_lists):
 #     return years    
 
 
-def locate_min():
+def locate_youngest_or_oldest_album():
     list_of_lists = data
     # print_albums_by_year(list_of_lists)
     list_of_years = []
@@ -127,7 +123,38 @@ def locate_min():
         # print(max_years)     
 
         for elem in max_years:
-            print(list_of_lists[elem])   
+            print(list_of_lists[elem]) 
+
+
+def print_shortest_or_longest_album():
+    pass
+
+
+def converting_to_seconds(length_of_album):
+    list_of_length_of_albums = []
+    for elem in list_of_lists:
+        length_of_album = elem[-1]
+        (m, s) = length_of_album.split(':')  
+        length_of_album_in_seconds = int(m) * 60 + int(s)
+        list_of_length_of_albums.append(length_of_album_in_seconds)
+    # if length_of_album_in_seconds in range(minimal_time_in_seconds, maximum_time_in_seconds):
+        # print(elem)
+    print(list_of_length_of_albums)
+
+    # RIGHT NOW IT IS DOING: converting_to_seconds_all_length_of_albums_and_adding_to_new_list
+
+    # finding minimum value
+    minimum_length = min(list_of_length_of_albums)
+    print(minimum_length)
+
+    index_of_minimum_length_in_list_of_lists = list_of_length_of_albums.index(minimum_length)
+    print(index_of_minimum_length_in_list_of_lists)
+    album_with_shortest_length = list_of_lists[index_of_minimum_length_in_list_of_lists]
+    print(album_with_shortest_length)
+
+    # TODO: maximum lenght:     # CONTINUE!!
+    maximum_length = max(list_of_length_of_albums)
+    print(maximum_length)
 
 
 main()
