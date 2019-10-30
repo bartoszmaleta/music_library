@@ -1,5 +1,9 @@
 import csv
 # from display import *
+# data = import_files()
+# import_files()
+# print(data)
+# list_of_lists = data
 
 
 def main():
@@ -16,16 +20,23 @@ def main():
     print_albums_by_artist(list_of_lists)
     print()
     print_albums_by_album_name(list_of_lists)
-    print_albums_by_year(list_of_lists)
-    locate_min(years)
+    # print_albums_by_year(list_of_lists)  # return years
+    locate_min()
 
 
-def import_files(filename='text_albums_data.txt'):
+def import_files(filename="text_albums_data.txt"):  # how to?
     results = []
     with open(filename, newline='') as inputfile:
         for row in csv.reader(inputfile):
             results.append(row)
     return results
+
+
+# filename = "text_albums_data.txt"
+data = import_files()
+import_files()
+print(data)
+list_of_lists = data
 
 
 def print_records(list_of_lists):
@@ -58,7 +69,6 @@ def print_albums_by_given_time_range(list_of_lists):
             print(elem)
 
 
-# testing git
 def print_albums_by_artist(list_of_lists):
     artist = input('By what artist you want see albums? ')
     # artist = artist.lower()
@@ -81,39 +91,43 @@ def print_albums_by_album_name(list_of_lists):
 #     # album_name = album_name.lower()
 #     for elem in list_of_lists:
 #         years.append(int(elem[2]))
-#     # if max_or_min == 'n':
-#     #     print(max(years)) 
-#     # else: 
-#     #     print(min(years))
+
 #     return years    
 
 
-def locate_min(list_of_years):
-    min_indicies = []
-    smallest = min(list_of_years)
-    for index, element in enumerate(list_of_years):
-        if smallest == element:  # check if this element is the minimum_value
-            min_indicies.append(index)  # add the index to the list if it is
-    print(';swdadasd')
-    return min_indicies
+def locate_min():
+    list_of_lists = data
+    # print_albums_by_year(list_of_lists)
+    list_of_years = []
+    min_years = []
+    max_years = []
+    max_or_min = input('Oldest or Newest o/n ? ')
+    for elem in list_of_lists:
+        list_of_years.append(int(elem[2]))
+    
+    # print(list_of_years)
+        
+    if max_or_min == 'o':
+        smallest = min(list_of_years)
+        # smallest = min(list_of_lists[2])
+        for index, element in enumerate(list_of_years): 
+            if smallest == element:  # check if this element is the minimum_value
+                min_years.append(index)  # add the index to the list if it is
+        # print(min_years)
 
-    def print_all_albums_by_indexes(list_of_indexes_of_albums):
-        for elem in list_of_indexes_of_albums:
+        for elem in min_years:
             print(list_of_lists[elem])
 
- # # return smallest, min_indicies
-        # # print(smallest)
-        # # print(min_indicies)
-        # first_oldest_album = list_of_lists[min_indicies[0]]
-        # second_oldest_album = list_of_lists[min_indicies[1]]
-        # print('-----')
-        # print('first: ', first_oldest_album)
-        # print('second: ', second_oldest_album)
+    if max_or_min == 'n':
+        biggest_year = max(list_of_years)
 
-    # print(list_of_lists[4])
-    # print(list_of_lists[9])
-    
-    # print(years)
+        for index, element in enumerate(list_of_years):
+            if biggest_year == element:
+                max_years.append(index)
+        # print(max_years)     
+
+        for elem in max_years:
+            print(list_of_lists[elem])   
 
 
 main()
