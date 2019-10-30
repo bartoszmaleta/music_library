@@ -18,11 +18,13 @@ def menu():
         elif (user_choice == "3"):
             print_albums_by_given_time_range(list_of_lists)
         elif (user_choice == "4"):
-            converting_to_seconds(list_of_lists)
+            printing_shortest_or_longest_album()
         elif (user_choice == "5"):
             print_albums_by_artist(list_of_lists)
         elif (user_choice == "6"):
             print_albums_by_album_name(list_of_lists)
+        # elif (user_choice == "7"):  # TODO raport!!!!
+        #     printning_raport()
         elif (user_choice == "Q"):
             is_running = False
 
@@ -134,8 +136,9 @@ def locate_youngest_or_oldest_album():
             print(list_of_lists[elem]) 
 
 
-def converting_to_seconds(list_of_lists):
+def returning_shortest_or_longest_album(list_of_lists):
     list_of_length_of_albums = []
+
     for elem in list_of_lists:
         length_of_album = elem[-1]
         (m, s) = length_of_album.split(':')  
@@ -143,27 +146,42 @@ def converting_to_seconds(list_of_lists):
         list_of_length_of_albums.append(length_of_album_in_seconds)
     # if length_of_album_in_seconds in range(minimal_time_in_seconds, maximum_time_in_seconds):
         # print(elem)
-    print(list_of_length_of_albums)
+    # print(list_of_length_of_albums)
 
     # RIGHT NOW IT IS DOING: converting_to_seconds_all_length_of_albums_and_adding_to_new_list
 
     # finding minimum value
     minimum_length = min(list_of_length_of_albums)
-    print(minimum_length)
+    # print(minimum_length)
 
     index_of_minimum_length_in_list_of_lists = list_of_length_of_albums.index(minimum_length)
-    print(index_of_minimum_length_in_list_of_lists)
+    # print(index_of_minimum_length_in_list_of_lists)
     album_with_shortest_length = list_of_lists[index_of_minimum_length_in_list_of_lists]
-    print(album_with_shortest_length)
+    # print(album_with_shortest_length)
 
-    # TODO: maximum lenght:     # CONTINUE!!
+    # TODO: maximum lenght:
     maximum_length = max(list_of_length_of_albums)
-    print(maximum_length)
+    # print(maximum_length)
 
     index_of_maximum_length_in_list_of_lists = list_of_length_of_albums.index(maximum_length)
-    print(index_of_maximum_length_in_list_of_lists)
+    # print(index_of_maximum_length_in_list_of_lists)
     album_with_longest_length = list_of_lists[index_of_maximum_length_in_list_of_lists]
-    print(album_with_longest_length)
+    # print(album_with_longest_length)
+
+    list_with_shortest_and_longest = []
+    list_with_shortest_and_longest.append(album_with_longest_length)
+    list_with_shortest_and_longest.append(album_with_shortest_length)
+    return list_with_shortest_and_longest
+
+
+def printing_shortest_or_longest_album():
+    print_list_with_shortest_and_longest = returning_shortest_or_longest_album(list_of_lists)
+    print('List with shortest and longest: ', print_list_with_shortest_and_longest)
+    # print(list_with_shortest_and_longest)
+
+
+def printing_raport():
+    pass
 
 
 main()
