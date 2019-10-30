@@ -10,6 +10,7 @@ def main():
 def menu():
     is_running = True
     while is_running:
+        import_files()
         display_menu()
         user_choice = input("Your choise is: ")
         if (user_choice == "1"):
@@ -254,7 +255,7 @@ def add_new_album():
     string = ",".join(new_album)
     print(string)
     with open('text_albums_data.txt', 'a+') as fo:
-        fo.writelines("%s" % string)
+        fo.writelines("%s" % "\n" + string)
         
     return new_album
 
