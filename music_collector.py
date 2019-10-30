@@ -1,8 +1,9 @@
 import csv
-# from display import *
+from display import *
 
 
 def main():
+    display_menu()
     data = import_files()
     print(data)
     list_of_lists = data
