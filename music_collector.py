@@ -19,7 +19,7 @@ def main():
     print_albums_by_year(list_of_lists)
 
 
-def import_files(filename='text_albums_data.txt'):
+def import_files(filename='/home/acer/Documents/music_library/music_library/text_albums_data.txt'):
     results = []
     with open(filename, newline='') as inputfile:
         for row in csv.reader(inputfile):
@@ -86,7 +86,27 @@ def print_albums_by_year(list_of_lists):
     else: 
         print(min(years))
 
+    def locate_min(some_list):
+        min_indicies = []
+        smallest = min(some_list)
+        for index, element in enumerate(some_list):
+            if smallest == element:  # check if this element is the minimum_value
+                min_indicies.append(index)  # add the index to the list if it is
+
+        # return smallest, min_indicies
+        # print(smallest)
+        # print(min_indicies)
+        first_oldest_album = list_of_lists[min_indicies[0]]
+        second_oldest_album = list_of_lists[min_indicies[1]]
+        print('-----')
+        print('first: ', first_oldest_album)
+        print('second: ', second_oldest_album)
+
+    # print(list_of_lists[4])
+    # print(list_of_lists[9])
+    
     print(years)
+    locate_min(years)
 
 
 main()
