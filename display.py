@@ -20,18 +20,3 @@ def display_menu():
     print("10. Find oldest or youngest album (o/y)")
     print("Q. Quit")
 
-
-# def menu():
-#     is_running = True
-#     while is_running:
-#         display_menu()
-#         user_choice = input("Your choise is: ")
-#         if (user_choice == "1"):
-#             print_records(list_of_lists)
-#         elif (user_choice == "Q"):
-#             is_running = False
-    
-
-# is_running = True
-# user_choice = None
-# display_menu()

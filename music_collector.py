@@ -1,6 +1,14 @@
 import csv
-import pickle
+# import pickle
 from display import *
+import time
+
+# TODO:
+# - Last point of report = how many albums are given the genres
+# - As a user I want to view all similar music genres albums when searching for particular album (Like in spotify, where user receives context suggestions regarding similar bands or tracks)
+# - As a user I want to add new album ===> DONE partially, does not update print_tabel during running program
+# - As a user I want to edit already existing albums
+# - As a user I want to save all new albums to external file
 
 
 def main():
@@ -25,9 +33,9 @@ def menu():
             print_albums_by_given_artist()
         elif (user_choice == "6"):
             print_albums_by_given_album_name()
-        elif (user_choice == "7"):  # TODO raport!!!!
+        elif (user_choice == "7"):  # TODO raport!!!! 
             # printning_raport()
-            return_raport()
+            print_raport()
         elif (user_choice == "8"):
             add_new_album()
         elif (user_choice == "10"):
@@ -36,7 +44,8 @@ def menu():
             is_running = False
 
 
-def import_files(filename="text_albums_data.txt"): 
+# def import_files(filename="text_albums_data.txt"): 
+def import_files(filename="/home/acer/Documents/music_library/music_library/text_albums_data.txt"): 
     results = []
     with open(filename, newline='') as inputfile:
         for row in csv.reader(inputfile):
@@ -50,6 +59,8 @@ import_files()
 print(data)
 list_of_lists = data
 
+
+# ----------------------------------------------
 
 def return_albums_by_genre(list_of_lists):
     genre = input('By what genre you want see albums? ')
@@ -74,6 +85,8 @@ def print_albums_by_genre():
     print()
     # print_records(list_of_albums_sorted_by_genre)
 
+
+# ----------------------------------------------
 
 def return_albums_by_given_time_range(list_of_lists):
     minimal_time_in_minutes = (input('Minimum time of album: (in minutes) '))
@@ -107,6 +120,8 @@ def print_albums_by_given_time_range():
     print()
 
 
+# ----------------------------------------------
+
 def return_albums_by_artist(list_of_lists):
     artist = input('By what artist you want see albums? ')
     list_of_albums_sorted_by_artist = []
@@ -127,6 +142,8 @@ def print_albums_by_given_artist():
     print('Albums with your given artist are: \n {}'.format(albums_by_given_artist))
     print()
 
+
+# ----------------------------------------------
 
 def return_albums_by_given_album_name(list_of_lists):
     album_name = input('By what name you want see albums? ')
@@ -177,6 +194,8 @@ def return_list_of_oldest_album():
     return list_of_oldest_album
 
 
+# ----------------------------------------------
+
 def return_list_of_youngest_album():
     max_years = []
     list_of_youngest_album = []
@@ -209,7 +228,7 @@ def print_youngest_or_oldest_album():
         print(print_youngest_album)
 
 
-# ------------------
+# ----------------------------------------------
 
 def return_list_of_length_of_albums(list_of_lists):
     list_of_length_of_albums = []
@@ -219,24 +238,8 @@ def return_list_of_length_of_albums(list_of_lists):
         (m, s) = length_of_album.split(':')  
         length_of_album_in_seconds = int(m) * 60 + int(s)
         list_of_length_of_albums.append(length_of_album_in_seconds)
-
+    # print(list_of_length_of_albums)
     return list_of_length_of_albums
-
-    # minimum_length = min(list_of_length_of_albums)
-
-    # index_of_minimum_length_in_list_of_lists = list_of_length_of_albums.index(minimum_length)
-    # album_with_shortest_length = list_of_lists[index_of_minimum_length_in_list_of_lists]
-
-    # maximum_length = max(list_of_length_of_albums)
-
-    # index_of_maximum_length_in_list_of_lists = list_of_length_of_albums.index(maximum_length)
-    # album_with_longest_length = list_of_lists[index_of_maximum_length_in_list_of_lists]
-
-    # list_with_shortest_and_longest = []
-    # list_with_shortest_and_longest.append(album_with_longest_length)
-    # list_with_shortest_and_longest.append(album_with_shortest_length)
-
-    # return list_with_shortest_and_longest
 
 
 def return_list_of_longest_albums():
@@ -260,10 +263,6 @@ def return_list_of_shortest_albums():
 
 
 def printing_shortest_or_longest_album():
-    # print_list_with_shortest_and_longest = returning_shortest_or_longest_album(list_of_lists)
-    # print('List with shortest and longest: ', print_list_with_shortest_and_longest)
-    # # print(list_with_shortest_and_longest)
-    
     print_list_of_shortest_albums = return_list_of_shortest_albums()
     print_list_of_longest_albums = return_list_of_longest_albums()
 
@@ -273,10 +272,10 @@ def printing_shortest_or_longest_album():
     elif shortest_or_longest == 'l':
         print(print_list_of_longest_albums)
 
-# ----------------------------
 
+# ----------------------------------------------
 
-def return_raport():
+def print_raport():
     print_youngest_album = return_list_of_youngest_album()
     print_oldest_album = return_list_of_oldest_album()
     print_list_of_shortest_albums = return_list_of_shortest_albums()
@@ -285,6 +284,16 @@ def return_raport():
     print('ya ---> ', print_youngest_album, '\n', 'old ----> ', print_oldest_album)
     print('shortest ---> ', print_list_of_shortest_albums)
     print('longest ---> ', print_list_of_longest_albums)
+    print('---------------------')
+    list_of_length_of_all_albums = return_list_of_length_of_albums(list_of_lists)
+    # print(list_of_length_of_all_albums)
+    sum_of_list_of_length_of_all_albums = sum(list_of_length_of_all_albums)
+    # print(sum_of_list_of_length_of_all_albums)
+    length_of_all_albums = (time.strftime("%H:%M:%S", time.gmtime(sum_of_list_of_length_of_all_albums)))
+    print('length of all albums: ', length_of_all_albums)
+
+
+# ----------------------------------------------
 
 def add_new_album():
     new_album = []
@@ -295,12 +304,11 @@ def add_new_album():
     print(new_album)
     string = ",".join(new_album)
     print(string)
-    with open('text_albums_data.txt', 'a+') as fo:
+    with open('/home/acer/Documents/music_library/music_library/text_albums_data.txt', 'a+') as fo:
+        print('writed')
         fo.writelines("%s" % "\n" + string)
         
     return new_album
-
-
 
 
 main()

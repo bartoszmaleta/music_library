@@ -29,13 +29,14 @@ def menu():
             print_raport()
         elif (user_choice == "8"):
             add_new_album()
+            add_new_album_to_external_file()
         elif (user_choice == "10"):
             print_youngest_or_oldest_album()
         elif (user_choice == "Q"):
             is_running = False
 
 
-def import_files(filename="text_albums_data.txt"): 
+def import_files(filename="/home/acer/Documents/music_library/music_library/text_albums_data.txt"): 
     results = []
     with open(filename, newline='') as inputfile:
         for row in csv.reader(inputfile):
@@ -221,22 +222,6 @@ def return_list_of_length_of_albums(list_of_lists):
 
     return list_of_length_of_albums
 
-    # minimum_length = min(list_of_length_of_albums)
-
-    # index_of_minimum_length_in_list_of_lists = list_of_length_of_albums.index(minimum_length)
-    # album_with_shortest_length = list_of_lists[index_of_minimum_length_in_list_of_lists]
-
-    # maximum_length = max(list_of_length_of_albums)
-
-    # index_of_maximum_length_in_list_of_lists = list_of_length_of_albums.index(maximum_length)
-    # album_with_longest_length = list_of_lists[index_of_maximum_length_in_list_of_lists]
-
-    # list_with_shortest_and_longest = []
-    # list_with_shortest_and_longest.append(album_with_longest_length)
-    # list_with_shortest_and_longest.append(album_with_shortest_length)
-
-    # return list_with_shortest_and_longest
-
 
 def return_list_of_longest_albums():
     returned_list_of_length_of_albums = return_list_of_length_of_albums(list_of_lists)
@@ -259,10 +244,6 @@ def return_list_of_shortest_albums():
 
 
 def printing_shortest_or_longest_album():
-    # print_list_with_shortest_and_longest = returning_shortest_or_longest_album(list_of_lists)
-    # print('List with shortest and longest: ', print_list_with_shortest_and_longest)
-    # # print(list_with_shortest_and_longest)
-    
     print_list_of_shortest_albums = return_list_of_shortest_albums()
     print_list_of_longest_albums = return_list_of_longest_albums()
 
@@ -295,8 +276,23 @@ def add_new_album():
     print(new_album)
     with open('text_albums_data.txt', 'a+') as fo:
         fo.writelines("%s\n" % elem for elem in new_album)
-        
+    
     return new_album
+
+
+def add_new_album_to_external_file():
+    # new_album2 = []
+    # input_class_list2 = ['Artist', 'Title', 'year', 'genre', 'lenght']
+    # for elem in input_class_list2:
+    #     element = input(f"Input : {elem} : ")
+    #     new_album2.append(element)
+    # print(new_album2)
+    new_album_which_is_added = add_new_album()
+
+    with open('external_file.txt', 'a+') as ext:
+        ext.writeline("%s\n" % elem for elem in new_album_which_is_added)
+
+    return new_album_which_is_added
 
 
 main()
