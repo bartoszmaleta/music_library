@@ -30,3 +30,7 @@ What to do
 Plan your work - divide task amongs team members. Create documents with specific, assigned tasks.
 Implement all basic features
 Program should be fool-proof
+
+
+# INFO: The final version of program is in file: "music_collector_1.9_clean_final.py".
+# INFO_2: Also file "display" is needed for program to run. The rest is redundant.

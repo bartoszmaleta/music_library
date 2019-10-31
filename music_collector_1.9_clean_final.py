@@ -3,6 +3,9 @@ from display import *
 import time
 
 # INFO: MICHAŁ!!!!!! Don't change path!!! Just comment my path, and uncomment yours, which is below
+# PATH to change are in: 
+# 1) 
+# 2) -----ADDING ALBUMS
 # CHANGE time.sleep in display to 5
 
 # TODO:
