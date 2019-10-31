@@ -1,5 +1,5 @@
 # music_library
-Structure CODECOOL MUSIC LIBRARY structure should consists of these modules:  1) music_reports.py - responsible for generating reports from given data and loading file (contains main logic of the program) 2) display.py – responsible for printing data on screen
+Structure MUSIC LIBRARY structure should consists of these modules:  1) music_reports.py - responsible for generating reports from given data and loading file (contains main logic of the program) 2) display.py – responsible for printing data on screen
 Mentors want to play some music during breaks. They need your help to manage their music library.
 
 Your task is to create python program from scratch given only a customers needs. It is your responsibility how code should look to preserve and ensure all basic programming principles regarding clean code, like DRY principle.
