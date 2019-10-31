@@ -6,9 +6,12 @@ def print_records(list_of_lists):
     text_for_printing_the_whole_list_of_lists = 'THE LIST OF ALBUMS \n'
     text_for_printing_the_whole_list_of_lists_alignment = text_for_printing_the_whole_list_of_lists.center(50)
     print(text_for_printing_the_whole_list_of_lists_alignment)
-    for elem in list_of_lists:
-        print(elem)
-    return print_records
+    # for elem in list_of_lists:      # working version ---> UNCOMMENT!!
+        # print(elem)
+    # return print_records
+    for i, elem in enumerate(list_of_lists):
+        print(f'{format(i+1)}. {elem}')
+    return print_records    
 
 
 def display_menu():
@@ -29,6 +32,9 @@ def display_menu():
     print("8. Add new album")
     print("9. Edit album")
     print("10. Find oldest or youngest album")
+    print("11. Print list of all genres")
+    print("12. Print number of all albums")
+    print("e. Easter egg")
     print("Q. Quit")
 
 
@@ -66,6 +72,8 @@ def clear_terminal():
 
 
 def your_choice():
+    one_line_space()
+    one_line_space()
     print("Enter your choice: ")
 
 

@@ -32,3 +32,5 @@ weee,wwww,1234,pop,12:99
 Przemek,title,2014,pop,20:54
 Baroo,qwe,2014,pop,42:14
 Barto,oppo,2041,pop,14:55
+Lady Pank,Mniej niz zero,2010,rock,20:15
+Lady Pank,Mniej niz zero,2008,rock,15:48
