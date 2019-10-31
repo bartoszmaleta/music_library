@@ -28,13 +28,13 @@ def main():
 def menu():
     is_running = True
     while is_running:
-        import_files()
         display_menu()
         your_choice()
         user_choice = input()
         if (user_choice == "1"): 
             clear_terminal()
             # 3 TODO: here something add to update list_of_lists 
+            import_files()
             print_records(list_of_lists)
         elif (user_choice == "2"):
             clear_terminal()
@@ -64,12 +64,13 @@ def menu():
             is_running = False
 
 
-# def import_files(filename="text_albums_data.txt"): 
-def import_files(filename="/home/acer/Documents/music_library/music_library/text_albums_data.txt"): 
+def import_files(filename="text_albums_data.txt"): 
+# def import_files(filename="/home/acer/Documents/music_library/music_library/text_albums_data.txt"): 
     results = []
     with open(filename, newline='') as inputfile:
         for row in csv.reader(inputfile):
             results.append(row)
+    inputfile.close()
     return results
 
 
@@ -376,9 +377,11 @@ def add_new_album():
     print(new_album)
     string = ",".join(new_album)
     print(string)
-    with open('/home/acer/Documents/music_library/music_library/text_albums_data.txt', 'a+') as fo:
+    # with open('/home/acer/Documents/music_library/music_library/text_albums_data.txt', 'a+') as fo:
+    with open('text_albums_data.txt', 'a+') as fo:
         print('writed')
         fo.writelines("%s" % "\n" + string)
+        fo.close()
         
     return new_album
 

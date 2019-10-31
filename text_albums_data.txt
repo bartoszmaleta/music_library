@@ -22,3 +22,7 @@ DDSD,zxc,2015,pop,24:47
 broo,ppo,2014,pop,14:47
 popek,poek,2004,pop,20:15
 BARB,qwe,2014,pop,47:14
+Kult,Polska,1987,rock,44:44
+Lady Pank,Mniej niż zero,1989,pop,44:44
+Republika,Nowe Sytuacje,1989,rock,44:34
+Zenek Martyniuk,Disco ,2019,disco polo,32:11
