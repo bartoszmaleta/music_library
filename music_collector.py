@@ -63,6 +63,9 @@ def menu():
         elif (user_choice == "11"):  #  TESTING LIST_OF_ALL_GENRES
             clear_terminal()
             print_list_of_genres()
+        elif (user_choice == "12"):
+            clear_terminal()
+            return_number_of_albums()
         elif (user_choice == "Q"):
             is_running = False
 
@@ -345,6 +348,7 @@ def print_report():
     print_list_of_shortest_albums = return_list_of_shortest_albums()
     print_list_of_longest_albums = return_list_of_longest_albums()
     print_dictionary_of_genres = dictionary_of_genres()
+    print_number_of_albums = return_number_of_albums()
 
     report_text = '\033[1;34;49m REPORT'
     report_text = report_text.center(60)
@@ -361,6 +365,8 @@ def print_report():
     print('Shortest album: \n\n', print_list_of_shortest_albums)
     print('---------------------')
     print('Longest album: \n\n', print_list_of_longest_albums)
+    print('---------------------')
+    print('Number of albums: \n\n', print_number_of_albums)
     print('---------------------')
     list_of_length_of_all_albums = return_list_of_length_of_albums(list_of_lists)
     # print(list_of_length_of_all_albums)
@@ -386,12 +392,18 @@ def add_new_album():
     for elem in input_class_list:
         element = input(f"Input {elem} : ")
         new_album.append(element)
+    one_line_space()
+    new_album_text = 'Your new album is: '
+    print(new_album_text)
+    one_line_space()
     print(new_album)
+    one_line_space()
+    
     string = ",".join(new_album)
-    print(string)
+    # print(string)
     with open('/home/acer/Documents/music_library/music_library/text_albums_data.txt', 'a+') as fo:
     # with open('text_albums_data.txt', 'a+') as fo:
-        print('writed')
+        print('It has been added to albums list')
         fo.writelines("%s" % "\n" + string)
         fo.close()
         
@@ -438,6 +450,15 @@ def print_list_of_genres():
 
     dictionary_of_genres
     print(all_genres_list)
+
+
+def return_number_of_albums():
+    list_of_length_of_albums = return_list_of_length_of_albums(list_of_lists)
+    # print(return_number_of_albums)
+    # print(len(list_of_length_of_albums))
+
+    number_of_albums = len(list_of_length_of_albums)
+    return number_of_albums
 
 
 main()
