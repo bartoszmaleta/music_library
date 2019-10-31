@@ -60,12 +60,15 @@ def menu():
         elif (user_choice == "10"):
             clear_terminal()
             print_youngest_or_oldest_album()
+        elif (user_choice == "11"):  #  TESTING LIST_OF_ALL_GENRES
+            clear_terminal()
+            print_list_of_genres()
         elif (user_choice == "Q"):
             is_running = False
 
 
-def import_files(filename="text_albums_data.txt"): 
-# def import_files(filename="/home/acer/Documents/music_library/music_library/text_albums_data.txt"): 
+# def import_files(filename="text_albums_data.txt"): 
+def import_files(filename="/home/acer/Documents/music_library/music_library/text_albums_data.txt"): 
     results = []
     with open(filename, newline='') as inputfile:
         for row in csv.reader(inputfile):
@@ -341,6 +344,7 @@ def print_report():
     print_oldest_album = return_list_of_oldest_album()
     print_list_of_shortest_albums = return_list_of_shortest_albums()
     print_list_of_longest_albums = return_list_of_longest_albums()
+    print_dictionary_of_genres = dictionary_of_genres()
 
     report_text = '\033[1;34;49m REPORT'
     report_text = report_text.center(60)
@@ -364,26 +368,76 @@ def print_report():
     # print(sum_of_list_of_length_of_all_albums)
     length_of_all_albums = (time.strftime("%H:%M:%S", time.gmtime(sum_of_list_of_length_of_all_albums)))
     print('Length of all albums: \n\n', length_of_all_albums)
+    print('---------------------')
+    print('Genres statistics: \n')
+    for k, v in print_dictionary_of_genres.items():
+        print('', k, ':', v)
 
 
 # ---------------------------------------------- ADDING NEW ALBUM
 
 def add_new_album():
     new_album = []
-    input_class_list = ['Artist', 'Title', 'year', 'genre', 'lenght']
+    adding_new_album_text = '\033[1;34;49m ADDING NEW ALBUM'
+    adding_new_album_text_alignment = adding_new_album_text.center(60)
+    print(adding_new_album_text_alignment)
+    print('\033[0;37;49m ')
+    input_class_list = ['artist', 'title', 'year', 'genre', 'lenght (mm:ss)']
     for elem in input_class_list:
-        element = input(f"Input : {elem} : ")
+        element = input(f"Input {elem} : ")
         new_album.append(element)
     print(new_album)
     string = ",".join(new_album)
     print(string)
-    # with open('/home/acer/Documents/music_library/music_library/text_albums_data.txt', 'a+') as fo:
-    with open('text_albums_data.txt', 'a+') as fo:
+    with open('/home/acer/Documents/music_library/music_library/text_albums_data.txt', 'a+') as fo:
+    # with open('text_albums_data.txt', 'a+') as fo:
         print('writed')
         fo.writelines("%s" % "\n" + string)
         fo.close()
         
     return new_album
+
+
+# ---------------------------------------------- List of all genres
+
+def return_list_of_genres(list_of_lists):
+    # genre = input('By what genre you want see albums? ')
+    # genre = genre.lower()
+    list_of_genres = []
+    
+    for elem in list_of_lists:
+        # print(elem)
+        list_of_genres.append(elem[-2])
+    
+    # print(list_of_genres)
+    # print_records(list_of_albums_sorted_by_genre)
+
+    return list_of_genres
+
+
+def dictionary_of_genres():
+    dict_of_genres = {}
+    all_genres_list = return_list_of_genres(list_of_lists)
+    for elem in all_genres_list:
+        if elem in dict_of_genres:
+            dict_of_genres[elem] += 1
+        else:
+            dict_of_genres[elem] = 1
+
+    return dict_of_genres
+
+
+def print_list_of_genres():
+    # HELPING FUNCIONS = TESTING
+    all_genres_list = return_list_of_genres(list_of_lists)
+    one_line_space()
+    info_about_what_is_displaying = 'Dict of genres: '
+    print(info_about_what_is_displaying)
+
+    print('---------------------')
+
+    dictionary_of_genres
+    print(all_genres_list)
 
 
 main()
