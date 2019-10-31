@@ -34,7 +34,7 @@ def menu():
         if (user_choice == "1"): 
             clear_terminal()
             # 3 TODO: here something add to update list_of_lists 
-            import_files()
+            list_of_lists = import_files()
             print_records(list_of_lists)
         elif (user_choice == "2"):
             clear_terminal()

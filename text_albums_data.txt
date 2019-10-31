@@ -26,3 +26,6 @@ Kult,Polska,1987,rock,44:44
 Lady Pank,Mniej niż zero,1989,pop,44:44
 Republika,Nowe Sytuacje,1989,rock,44:34
 Zenek Martyniuk,Disco ,2019,disco polo,32:11
+Kazik,Spalam sie,1987,rock,45:45
+Lombard,ret,1234,pop,12:33
+weee,wwww,1234,pop,12:99
